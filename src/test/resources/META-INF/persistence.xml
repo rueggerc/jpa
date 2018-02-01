@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" version="1.0">
+ 
+    <persistence-unit name="DevPU">
+        <provider>org.hibernate.ejb.HibernatePersistence</provider>
+        <class>com.rueggerllc.beans.Account</class>
+        <properties>
+            <property name="hibernate.dialect" value="com.rueggerllc.hibernate.MyDerbyDialect" />
+            <property name="hibernate.connection.url" value="jdbc:derby://localhost:1527/rueggerllc" />
+            <property name="hibernate.connection.driver_class" value="org.apache.derby.jdbc.ClientDriver" />
+            <property name="hibernate.connection.username" value="chris" />
+            <property name="hibernate.connection.password" value="dakota" />
+            <property name="hibernate.show_sql" value="true" />
+            <property name="hibernate.format_sql" value="true" />
+        </properties>
+    </persistence-unit>
+</persistence>

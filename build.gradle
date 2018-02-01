@@ -1,0 +1,26 @@
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+
+repositories {
+    mavenCentral()
+    jcenter()
+}
+
+
+dependencies {
+        compile 'org.hibernate.javax.persistence:hibernate-jpa-2.0-api:1.0.1.Final'
+        compile 'org.hibernate:hibernate-entitymanager:4.2.8.Final'
+	compile 'log4j:log4j:1.2.17'
+	runtime 'org.apache.derby:derbyclient:10.10.1.1'
+	testCompile 'junit:junit:4.12'
+     
+}
+
+
+test {
+  testLogging {
+    events "PASSED", "STARTED", "FAILED", "SKIPPED"
+  }
+}
+  
