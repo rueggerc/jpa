@@ -29,8 +29,8 @@ public class CustomerOrderTests {
 	
 	// Dummy Reference Data
 	private static String[] productIds = 
-		{"GT442XHI3", "JT8382X38", "YF662XHI1", "KM3838X32", "LO399FXB2", "877KKJ21",
-		 "TR222DG93", "PP8382RW8", "MMN42396B", "WER992166", "EEY828M11", "6677DF12"};
+		{"GT442XHI3", "JT8382X38", "YF662XHI1", "KM3838X37", "LO399FXB2", "877KKJ214",
+		 "TR222DG93", "PP8382RW8", "MMN42396B", "WER992162", "EEY828M11", "6677DF122"};
 	
 	private static String[] regions = 
 		{"North America", "South America", "Western Europe", "Eastern Europe", "Asia", "Far East",
