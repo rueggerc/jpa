@@ -1,5 +1,6 @@
 package com.rueggerllc.tests;
 
+import java.math.BigDecimal;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -48,34 +49,37 @@ public class CustomerOrderTests {
 		logger.info("Dummy Test");
 	}
 	
-//	@Test
-//	// @Ignore
-//	public void testCreateAccounts() {
-//		try {
-//			EntityManagerFactory emf = Persistence.createEntityManagerFactory("DevPU");
-//			em = emf.createEntityManager();
-//			em.getTransaction().begin();
-//			for (int i = 0; i < 10; i++) {
-//				Account account = new Account();
-//				account.setName("Account" + i);
-//				account.setAddress("100 Main Street");
-//				account.setState("Virginia");
-//				account.setZip("20171");
-//				account.setCreateDate(getNow());
-//				account.setStatus(100+i);
-//				em.persist(account);
-//			}
-//			em.getTransaction().commit();
-//		} catch (Exception e) {
-//			logger.error("ERROR", e);
-//			if (em != null && em.getTransaction().isActive()) {
-//				em.getTransaction().rollback();
-//			}
-//		}		
-//	}
-	
 	@Test
 	// @Ignore
+	public void testCreateOrders() {
+		try {
+			EntityManagerFactory emf = Persistence.createEntityManagerFactory("DevPU");
+			em = emf.createEntityManager();
+			em.getTransaction().begin();
+			for (int i = 0; i < 10; i++) {
+			CustomerOrder order = new CustomerOrder();
+				order.setOrderId(42L);
+				order.setProductId("GT442XHI3");
+				order.setCustomerId(311);
+				order.setQuantity(3);
+				order.setOrderDate(getNow());
+				order.setRegion("North America");
+				order.setNotes("These are the notes");
+				order.setAmount(BigDecimal.valueOf(178.92));
+				order.setStatus(100);
+				em.persist(order);
+			}
+			em.getTransaction().commit();
+		} catch (Exception e) {
+			logger.error("ERROR", e);
+			if (em != null && em.getTransaction().isActive()) {
+				em.getTransaction().rollback();
+			}
+		}		
+	}
+	
+	@Test
+	@Ignore
 	public void testGetAllOrders() {
 		try {
 			EntityManagerFactory emf = Persistence.createEntityManagerFactory("DevPU");
