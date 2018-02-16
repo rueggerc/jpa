@@ -27,6 +27,20 @@ public class CustomerOrderTests {
 	private EntityManager em = null;
 	
 	
+	// Dummy Reference Data
+	private static String[] productIds = 
+		{"GT442XHI3", "JT8382X38", "YF662XHI1", "KM3838X32", "LO399FXB2", "877KKJ21",
+		 "TR222DG93", "PP8382RW8", "MMN42396B", "WER992166", "EEY828M11", "6677DF12"};
+	
+	private static String[] regions = 
+		{"North America", "South America", "Western Europe", "Eastern Europe", "Asia", "Far East",
+		 "Australia", "Scandinavia", "Middle East", "Africa"};
+	
+	private static String[] notes = 
+		{"Business Delivery", "Home Delivery", "Fragile", "Electronics", "Furniture", "Drone", "Repeat Purchase"};
+	
+	private static int[] status = {100,101,105,108,111,198,202};
+	
 	@BeforeClass
 	public static void setupClass() throws Exception {
 	}
@@ -56,17 +70,18 @@ public class CustomerOrderTests {
 			EntityManagerFactory emf = Persistence.createEntityManagerFactory("DevPU");
 			em = emf.createEntityManager();
 			em.getTransaction().begin();
-			for (int i = 0; i < 10; i++) {
+			for (int i = 0; i < 100; i++) {
 			CustomerOrder order = new CustomerOrder();
-				order.setOrderId(42L);
-				order.setProductId("GT442XHI3");
-				order.setCustomerId(311);
-				order.setQuantity(3);
+				logger.info("NEXT");
+				order.setOrderId(i);
+				order.setProductId(getProductId(i));
+				order.setCustomerId(getCustomerId());
+				order.setQuantity(getQuantity());
 				order.setOrderDate(getNow());
-				order.setRegion("North America");
-				order.setNotes("These are the notes");
-				order.setAmount(BigDecimal.valueOf(178.92));
-				order.setStatus(100);
+				order.setRegion(getRegion(i));
+				order.setNotes(getNotes(i));
+				order.setAmount(getAmount());
+				order.setStatus(getStatus());
 				em.persist(order);
 			}
 			em.getTransaction().commit();
@@ -105,7 +120,30 @@ public class CustomerOrderTests {
 		return now;
 	}
 	
-
+	private String getProductId(int i) {
+		return productIds[i%productIds.length];
+	}
+	private int getQuantity() {
+		int quantity = (int)(Math.random() * 10) + 1;
+		return quantity;
+	}
+	private String getRegion(int i) {
+		return regions[(i+10)%regions.length];
+	}
+	private String getNotes(int i) {
+		return notes[(i+5)%notes.length];
+	}
+	private int getStatus() {
+		int index = (int)(Math.random() * 10) + 1;
+		return status[index%status.length]; 
+	}
+	private BigDecimal getAmount() {
+		double amount = (Math.random() * 10000);
+		return BigDecimal.valueOf(amount);
+	}
+	private int getCustomerId() {
+		return (int)(Math.random() * 150) + 1;
+	}
 	
 	
 }
