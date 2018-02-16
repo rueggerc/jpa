@@ -1,7 +1,7 @@
 package com.rueggerllc.beans;
 
 import java.math.BigDecimal;
-import java.util.Date;
+import java.sql.Timestamp;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -38,7 +38,7 @@ public class CustomerOrder {
 	private long quantity;
 	
 	@Column(name="order_date")
-	private Date orderDate;
+	private Timestamp orderDate;
 	
 	@Column(name="region")
 	private String region;
@@ -115,13 +115,19 @@ public class CustomerOrder {
 		this.quantity = quantity;
 	}
 
-	public Date getOrderDate() {
+
+
+	public Timestamp getOrderDate() {
 		return orderDate;
 	}
 
-	public void setOrderDate(Date orderDate) {
+
+
+	public void setOrderDate(Timestamp orderDate) {
 		this.orderDate = orderDate;
 	}
+
+
 
 	public String getRegion() {
 		return region;

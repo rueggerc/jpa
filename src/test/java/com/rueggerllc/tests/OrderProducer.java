@@ -1,6 +1,7 @@
 package com.rueggerllc.tests;
 
 import java.math.BigDecimal;
+import java.sql.Timestamp;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -48,7 +49,7 @@ public class OrderProducer {
 				order.setProductId(getProductId(seed));
 				order.setCustomerId(getCustomerId());
 				order.setQuantity(getQuantity());
-				order.setOrderDate(getNow());
+				order.setOrderDate(getNowTimestamp());
 				order.setRegion(getRegion(seed));
 				order.setNotes(getNotes(seed));
 				order.setAmount(getAmount());
@@ -67,6 +68,12 @@ public class OrderProducer {
 	private Date getNow() {
 		Date now = Calendar.getInstance().getTime();
 		return now;
+	}
+	
+	private Timestamp getNowTimestamp() {
+		Date now = Calendar.getInstance().getTime();
+		Timestamp timestamp = new Timestamp(now.getTime());
+		return timestamp;
 	}
 	
 	private String getProductId(int i) {

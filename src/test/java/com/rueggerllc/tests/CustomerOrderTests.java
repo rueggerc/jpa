@@ -1,6 +1,7 @@
 package com.rueggerllc.tests;
 
 import java.math.BigDecimal;
+import java.sql.Timestamp;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -64,20 +65,20 @@ public class CustomerOrderTests {
 	}
 	
 	@Test
-	// @Ignore
+	@Ignore
 	public void testCreateOrders() {
 		try {
 			EntityManagerFactory emf = Persistence.createEntityManagerFactory("DevPU");
 			em = emf.createEntityManager();
 			em.getTransaction().begin();
-			for (int i = 0; i < 100; i++) {
+			for (int i = 0; i < 3; i++) {
 			CustomerOrder order = new CustomerOrder();
 				logger.info("NEXT");
 				order.setOrderId(i);
 				order.setProductId(getProductId(i));
 				order.setCustomerId(getCustomerId());
 				order.setQuantity(getQuantity());
-				order.setOrderDate(getNow());
+				order.setOrderDate(getNowTimestamp());
 				order.setRegion(getRegion(i));
 				order.setNotes(getNotes(i));
 				order.setAmount(getAmount());
@@ -94,7 +95,7 @@ public class CustomerOrderTests {
 	}
 	
 	@Test
-	@Ignore
+	// @Ignore
 	public void testGetAllOrders() {
 		try {
 			EntityManagerFactory emf = Persistence.createEntityManagerFactory("DevPU");
@@ -118,6 +119,11 @@ public class CustomerOrderTests {
 	private Date getNow() {
 		Date now = Calendar.getInstance().getTime();
 		return now;
+	}
+	private Timestamp getNowTimestamp() {
+		Date now = Calendar.getInstance().getTime();
+		Timestamp timestamp = new Timestamp(now.getTime());
+		return timestamp;
 	}
 	
 	private String getProductId(int i) {

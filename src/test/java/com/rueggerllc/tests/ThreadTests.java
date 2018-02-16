@@ -19,7 +19,7 @@ public class ThreadTests {
 	}
 	
 	@Test
-	@Ignore
+	// @Ignore
 	public void testProducerThread() {
 		try {
 			Runnable runnable = () -> {
@@ -29,7 +29,7 @@ public class ThreadTests {
 				        String name = Thread.currentThread().getName();
 				        System.out.println("Thread Running: " + name);
 				        orderProducer.execute(1);
-				        TimeUnit.SECONDS.sleep(3);
+				        TimeUnit.SECONDS.sleep(62);
 			    	}
 			    }
 			    catch (InterruptedException e) {
