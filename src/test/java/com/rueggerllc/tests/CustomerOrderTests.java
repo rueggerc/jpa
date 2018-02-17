@@ -65,14 +65,14 @@ public class CustomerOrderTests {
 	}
 	
 	@Test
-	@Ignore
+	// @Ignore
 	public void testCreateOrders() {
 		try {
 			EntityManagerFactory emf = Persistence.createEntityManagerFactory("DevPU");
 			em = emf.createEntityManager();
 			em.getTransaction().begin();
-			for (int i = 0; i < 3; i++) {
-			CustomerOrder order = new CustomerOrder();
+			for (int i = 0; i <10; i++) {
+				CustomerOrder order = new CustomerOrder();
 				logger.info("NEXT");
 				order.setOrderId(i);
 				order.setProductId(getProductId(i));
@@ -95,7 +95,7 @@ public class CustomerOrderTests {
 	}
 	
 	@Test
-	// @Ignore
+	@Ignore
 	public void testGetAllOrders() {
 		try {
 			EntityManagerFactory emf = Persistence.createEntityManagerFactory("DevPU");
