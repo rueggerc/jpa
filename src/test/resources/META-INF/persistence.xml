@@ -5,6 +5,7 @@
         <provider>org.hibernate.ejb.HibernatePersistence</provider>
         <class>com.rueggerllc.beans.Account</class>
         <class>com.rueggerllc.beans.CustomerOrder</class>
+        <class>com.rueggerllc.beans.Pet</class>
         <properties>
             <property name="hibernate.dialect" value="com.rueggerllc.hibernate.MyDerbyDialect" />
             <property name="hibernate.connection.url" value="jdbc:derby://localhost:1527/rueggerllc" />

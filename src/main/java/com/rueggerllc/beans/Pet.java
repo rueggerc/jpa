@@ -17,7 +17,7 @@ import javax.persistence.Table;
 @NamedQueries
 ({
 	@NamedQuery(name="pet.findAll",query="select p from Pet p"),
-	@NamedQuery(name="pet.findByName",query="select p from CustomerOrder p where p.name=:p")
+	@NamedQuery(name="pet.findByName",query="select p from Pet p where p.name=:p")
 })
 public class Pet {
 

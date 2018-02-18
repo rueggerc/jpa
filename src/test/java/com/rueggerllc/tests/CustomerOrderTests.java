@@ -65,7 +65,7 @@ public class CustomerOrderTests {
 	}
 	
 	@Test
-	// @Ignore
+	@Ignore
 	public void testCreateOrders() {
 		try {
 			EntityManagerFactory emf = Persistence.createEntityManagerFactory("DevPU");
@@ -95,7 +95,7 @@ public class CustomerOrderTests {
 	}
 	
 	@Test
-	@Ignore
+	// @Ignore
 	public void testGetAllOrders() {
 		try {
 			EntityManagerFactory emf = Persistence.createEntityManagerFactory("DevPU");

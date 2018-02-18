@@ -25,11 +25,11 @@ public class ThreadTests {
 			Runnable runnable = () -> {
 			    try {
 			    	OrderProducer orderProducer = new OrderProducer();
-			    	for (int i = 0; i < 10; i++) {
+			    	for (int i = 0; i < 1; i++) {
 				        String name = Thread.currentThread().getName();
 				        System.out.println("Thread Running: " + name);
 				        orderProducer.execute(1);
-				        TimeUnit.SECONDS.sleep(62);
+				        TimeUnit.SECONDS.sleep(2);
 			    	}
 			    }
 			    catch (InterruptedException e) {
